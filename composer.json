@@ -1,0 +1,21 @@
+{
+    "name": "ar/cli_tasks",
+    "description": "simple cli task tracker",
+    "type": "project",
+    "require": {
+        "symfony/console": "^6.2",
+        "nesbot/carbon": "^2.66"
+    },
+    "license": "unlicense.org",
+    "autoload": {
+        "psr-4": {
+            "Ar\\CliTasks\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alex Roth",
+            "email": "psion@tuta.io"
+        }
+    ]
+}

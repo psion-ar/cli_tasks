@@ -1,0 +1,11 @@
+#! /usr/bin/env php
+
+<?php
+
+use Symfony\Component\Console\Application;
+
+require "vendor/autoload.php";
+
+$app = new Application('CliTasks', '1.0');
+
+$app->run();
