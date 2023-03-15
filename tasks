@@ -2,10 +2,31 @@
 
 <?php
 
+use Ar\CliTasks\DatabaseAdapter;
+use Ar\CliTasks\ShowCommand;
 use Symfony\Component\Console\Application;
 
 require "vendor/autoload.php";
 
 $app = new Application('CliTasks', '1.0');
+
+try {
+    $pdo = new PDO('sqlite:db.sqlite');
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (\PDOException$e) {
+    echo 'Could not connect to the database.';
+    exit(1);
+}
+
+$adapter = new DatabaseAdapter($pdo);
+
+$adapter->query('CREATE TABLE IF NOT EXISTS tasks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created_at DATETIME DEFAULT current_timestamp,
+    task TEXT NOT NULL,
+    due_date DATETIME)');
+
+$app->add(new ShowCommand($adapter));
 
 $app->run();
