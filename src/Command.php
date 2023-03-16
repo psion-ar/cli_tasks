@@ -27,7 +27,7 @@ class Command extends SymfonyCommand
         $formatedTasks = $this->formatTasks($tasks);
 
         $io->title('Your pending tasks:');
-        $io->table(['id', 'Created At', 'Description', 'Due Date'], $formatedTasks);
+        $io->table(['id', 'Created At', 'Task', 'Due Date'], $formatedTasks);
     }
 
     protected function formatTasks(array $tasks): array
@@ -38,8 +38,10 @@ class Command extends SymfonyCommand
             $formatedTasks[] = [
                 'id' => $task['id'],
                 'created_at' => Carbon::createFromDate($task['created_at'])->diffForHumans(),
-                'description' => strtoupper($task['description']),
-                'due_date' => Carbon::createFromDate($task['due_date'])->diffForHumans(),
+                'task' => strtoupper($task['task']),
+                'due_date' => ($task['due_date'])
+                ? Carbon::createFromDate($task['due_date'])->diffForHumans()
+                : 'there is no due date ...',
             ];
         }
 
