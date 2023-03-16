@@ -2,6 +2,7 @@
 
 <?php
 
+use Ar\CliTasks\AddCommand;
 use Ar\CliTasks\DatabaseAdapter;
 use Ar\CliTasks\ShowCommand;
 use Symfony\Component\Console\Application;
@@ -28,5 +29,6 @@ $adapter->query('CREATE TABLE IF NOT EXISTS tasks (
     due_date DATETIME)');
 
 $app->add(new ShowCommand($adapter));
+$app->add(new AddCommand($adapter));
 
 $app->run();
