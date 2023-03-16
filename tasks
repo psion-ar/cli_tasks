@@ -3,6 +3,7 @@
 <?php
 
 use Ar\CliTasks\AddCommand;
+use Ar\CliTasks\CompleteCommand;
 use Ar\CliTasks\DatabaseAdapter;
 use Ar\CliTasks\ShowCommand;
 use Symfony\Component\Console\Application;
@@ -30,5 +31,6 @@ $adapter->query('CREATE TABLE IF NOT EXISTS tasks (
 
 $app->add(new ShowCommand($adapter));
 $app->add(new AddCommand($adapter));
+$app->add(new CompleteCommand($adapter));
 
 $app->run();
