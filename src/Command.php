@@ -23,6 +23,6 @@ class Command extends SymfonyCommand
         }
 
         $io->title('Your pending tasks:');
-        $io->table(['id', 'Created At', 'Description'], $tasks);
+        $io->table(['id', 'Created At', 'Description', 'Due Date'], $tasks);
     }
 }
