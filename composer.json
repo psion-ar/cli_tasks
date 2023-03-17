@@ -6,7 +6,7 @@
         "symfony/console": "^6.2",
         "nesbot/carbon": "^2.66"
     },
-    "license": "unlicense.org",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Psn\\CliTasks\\": "src/"
