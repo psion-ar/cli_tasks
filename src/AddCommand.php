@@ -1,6 +1,6 @@
 <?php
 
-namespace Ar\CliTasks;
+namespace Psn\CliTasks;
 
 use Carbon\Carbon;
 use Symfony\Component\Console\Input\InputInterface;

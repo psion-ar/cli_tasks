@@ -1,5 +1,5 @@
 {
-    "name": "ar/cli_tasks",
+    "name": "psn/cli_tasks",
     "description": "simple cli task tracker",
     "type": "project",
     "require": {
@@ -9,7 +9,7 @@
     "license": "unlicense.org",
     "autoload": {
         "psr-4": {
-            "Ar\\CliTasks\\": "src/"
+            "Psn\\CliTasks\\": "src/"
         }
     },
     "authors": [
